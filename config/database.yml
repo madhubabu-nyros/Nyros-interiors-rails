@@ -1,0 +1,19 @@
+default: &default
+   adapter: mysql2
+   database: Nyros-Interiors
+   username: root
+   password: root123*
+   host: localhost
+   port: 3000
+
+development:
+  <<: *default
+  database: Nyros-Interiors
+
+test:
+  <<: *default
+  database: Nyros-Interiors
+
+production:
+  <<: *default
+  database: Nyros-Interiors

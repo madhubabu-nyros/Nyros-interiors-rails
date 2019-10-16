@@ -1,0 +1,2 @@
+module UserRequirementGoalsHelper
+end

@@ -1,0 +1,31 @@
+<!-- Customers list -->
+<div class="user-list">
+  <div class="container container-color">
+    <div style="text-align: right;">
+      <%= link_to 'Log out', destroy_admin_session_path, method: :delete, :class => 'btn btn-danger logout-top' %>
+    </div> 
+    <h4 class="customers">CUSTOMERS</h4> 
+    <table border="2" class="table table-background"> 
+      <thead>   
+        <tr>   
+    		  <th>Id</th>   
+          <th>Email</th>   
+          <th>Date</th>   
+          <th>Action</th>   
+      	</tr>   
+    	</thead>   	
+    	<tbody>   
+        <% @user_requirements.each do |ur| %>
+          <tr>
+    	      <td><%= ur.id %></td>   
+    	      <td><%= ur.user.email %></td>
+            <td><%= ur.created_at.strftime("%d/%m/%Y") %></td>
+    	      <td><%= link_to 'VIEW', admin_user_requirement_path(ur), :class => "btn btn-success view-btn" %></td>
+       		</tr>
+        <% end %>
+      </tbody>
+    </table>
+
+    <div class="page"><%= will_paginate(@user_requirements, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer) %></div>       
+  </div>
+</div>   

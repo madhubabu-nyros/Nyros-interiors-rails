@@ -1,0 +1,30 @@
+<!--display user_requirements based on user id -->
+<div style="margin-top: 25px;">
+	<div class="container">
+		<div style="text-align: right;">
+			<%= link_to 'Back', admin_user_requirements_path, :class => 'btn btn-info' %>
+		</div>
+		<h4 class="requirement">Requirements</h4>	
+		<div><span class="customer-email">CUSTOMER:</span> <%= @user_requirement.user.email %></div>
+		<div>
+			<div class="room">ROOM DESIGN</div>
+			<div class="room-content">
+				<div><%= image_tag (@user_requirement.room.image), class: "image" %><br><span class="room-content"><%= @user_requirement.room.content %></span></div>
+			</div>	
+		</div>
+		<div class="room">RE-DESIGN</div>
+		<% @user_requirement.user_requirement_goals.each do |g| %>
+			<ul>	
+				<li><%= g.content %></li>
+			</ul>
+		<% end %>
+		<div class="room">FURNITURE</div>
+		<div><%= image_tag (@user_requirement.furniture), class: "image" %></div>
+		<div class="room">STYLES</div>
+		<div class="styles">
+			<% @user_requirement.user_requirement_styles.each do |s| %>
+				<div class="style-img"><%= image_tag (s.image) %><br><span class="style-content"><%= s.content %></span></div>
+			<% end %>
+		</div>	
+	</div>
+</div>
